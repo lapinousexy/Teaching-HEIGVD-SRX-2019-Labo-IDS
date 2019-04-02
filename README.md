@@ -288,7 +288,8 @@ alert tcp any any -> any any (msg:"Mon nom!"; content:"Rubinstein"; sid:4000015;
 
 ---
 
-**Reponse :**  
+**Reponse :** La régle ayant le SID 4000015 en premiére rev écoute tous les paquets TCP qui proviennent de n'importe quelle IP et port pour toutes déstinations.
+Si le paquet contient le String "Rubinstein" une alerte contenant "Mon nom!" est envoyée ainsi que écrite dans les logs.   
 
 ---
 
