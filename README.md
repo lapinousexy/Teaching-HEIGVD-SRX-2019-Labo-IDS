@@ -351,6 +351,9 @@ Ecrire une règle qui journalise (sans alerter) un message à chaque fois que Wi
 ---
 
 **Reponse :**  
+La régle est visible dans la capture d'écran, la premiére IP est l'ip de ma machine physique sur le réseau de l'HEIG (10.192.104.120), la seconde est la seule adresse de wikipédia que nous avons trouvé (91.198.174.192).
+Le message a été journalisé dans un fichier nommé snort.log.1554391313, si nous avions utilisé la régle alert plutôt que log, l'alerte serait présente dans alert. Ces deux fichiers sont situé à : /var/log/snort/
+Les paquets qui sont à l'origine de ma machine en direction de wikipédia ont été écrit dans ce fichier de log. Ils sont donc illisible sauf les headers qui sont transmit en clair au travers de HTTPS.
 
 ---
 
