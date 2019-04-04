@@ -300,6 +300,10 @@ sudo snort -c myrules.rules -i eth0
 ```
 
 **Question 2: Que voyez-vous quand le logiciel est lancé ? Qu'est-ce que ça vaut dire ?**
+![Question 2](images/SRX_Labo03_Image00.png)
+![Question 2 bis](images/SRX_Labo03_Image01.png)
+
+Le logiciel nous fait un petit récapitulatif des règles que nous avons chargé dans le petit tableau, et il nous informe des limitations en mémoire que nous avons configuré (memory-cap).
 
 ---
 
@@ -315,8 +319,8 @@ Aller à un site web contenant votre nom ou votre mot clé que vous avez choisi 
 
 **Reponse :**
 
-![Question 3](images/SRX_Labo03_Image01.png)
-![Question 3 bis](images/SRX_Labo03_Image02.png)
+![Question 3](images/SRX_Labo03_Image02.png)
+![Question 3 bis](images/SRX_Labo03_Image03.png)
 
 Nous pouvons voir divers statistiques sur l'écoute que nous avons effectué, nottament le nombre d'alerte, et le classement des divers packets (TCP, UDP, etc...).
 
@@ -329,7 +333,10 @@ Aller au répertoire /var/log/snort. Ouvrir le fichier `alert`. Vérifier qu'il 
 ---
 
 **Reponse :**  
-ls
+![Question 4](images/SRX_Labo03_Image04.png)
+
+Nous pouvons voir le message d'alerte que nous avions configuré ("Mon nom!"), ainsi que les informations du packet responsable de l'alerte, nous pouvons voir l'IP source et destination, les ports, la date, etc...
+
 ---
 
 
