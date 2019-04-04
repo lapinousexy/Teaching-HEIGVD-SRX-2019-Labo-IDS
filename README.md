@@ -313,7 +313,12 @@ Aller à un site web contenant votre nom ou votre mot clé que vous avez choisi 
 
 ---
 
-**Reponse :**  
+**Reponse :**
+
+![Question 3](images/SRX_Labo03_Image01.png)
+![Question 3 bis](images/SRX_Labo03_Image02.png)
+
+Nous pouvons voir divers statistiques sur l'écoute que nous avons effectué, nottament le nombre d'alerte, et le classement des divers packets (TCP, UDP, etc...).
 
 ---
 
@@ -324,7 +329,7 @@ Aller au répertoire /var/log/snort. Ouvrir le fichier `alert`. Vérifier qu'il 
 ---
 
 **Reponse :**  
-
+ls
 ---
 
 
