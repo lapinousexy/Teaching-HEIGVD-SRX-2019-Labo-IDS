@@ -398,6 +398,8 @@ alert icmp any any <> 192.168.43.172 any (msg:"J'ai recu un ping";sid:4000011;re
 
 Nous avons dû ajouter une flêche bidirectionnel, et enlever la négation.
 
+![Question 7](images/SRX_Labo03_Image08.png)  
+
 ---
 
 
