@@ -414,7 +414,7 @@ Essayer d'écrire une règle qui Alerte qu'une tentative de session SSH a été 
 ---
 
 **Reponse :**  
-alert tcp any any - 192.168.100.145 22 (msg:"J'ai recu une demande SSH";content="SSH";sid:4000012;rev:1;)
+alert tcp any any - 192.168.100.145 22 (msg:"J'ai recu une demande SSH";content="SSH-";sid:4000012;rev:1;)
 
 Cette régle cherche tous les paquets dédiés au port 22 sur notre machine et contenant "SSH", le protocole ssh débutant avec des négociations contenant ce texte. Cela rends possible la détection de tentative de connexion SSH à notre machine.
 
