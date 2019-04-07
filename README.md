@@ -415,7 +415,7 @@ Essayer d'écrire une règle qui Alerte qu'une tentative de session SSH a été 
 
 **Reponse :**  
 
-Cette régle cherche tous les paquets dédiés au port 22 sur notre machine et contenant "ssh", le protocole ssh débutant avec de néfociation contenant ce texte. Cela rends possible la détéction de tentative de conexion SSH à notre machine.
+Cette régle cherche tous les paquets dédiés au port 22 sur notre machine et contenant "ssh", le protocole ssh débutant avec des négociations contenant ce texte. Cela rends possible la détéction de tentative de connexion SSH à notre machine.
 
 ---
 
