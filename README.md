@@ -367,9 +367,19 @@ Ecrire une règle qui alerte à chaque fois que votre système reçoit un ping d
 
 **Question 6: Quelle est votre règle ? Comment avez-vous fait pour que ça identifie seulement les pings entrants ? Où le message a-t'il été journalisé ? Qu'est-ce qui a été journalisé ?**
 
+Source : http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node33.html#SECTION004614000000000000000
+
 ---
 
 **Reponse :**  
+alert icmp !192.168.43.172 any -> 192.168.43.172 any (msg:"J'ai recu un ping";itype:8;sid:4000011;rev:1;)
+
+Nous avons utilisé l'option "itype", qui permet de filtrer les types ICMP, nous avons seulement bloquer les ICMPs de type request vers l'adresse de l'hôte.
+
+L'alerte a été journaliser dans le fichier "alert" présent dans le répértoire /var/log/snort.
+
+Voici un screenshot d'une alerte :
+![Question 6](images/SRX_Labo03_Image07.png)  
 
 ---
 
@@ -413,6 +423,8 @@ Lancer Wireshark et faire une capture du trafic sur l'interface connectée au br
 ---
 
 **Reponse :**  
+Il faut utiliser l'option "-r".
+Commande complète : sudo snort -c myrules.rules -r SRX_Labo03_PCAP.pcapng
 
 ---
 
@@ -423,7 +435,9 @@ Utiliser l'option correcte de Snort pour analyser le fichier de capture Wireshar
 ---
 
 **Reponse :**  
+Il n'y pas vraiment de différence.
 
+Les alertes sont aussi enregistrés dans le fichier "alert".
 ---
 
 <sub>This guide draws heavily on http://cs.mvnu.edu/twiki/bin/view/Main/CisLab82014</sub>
