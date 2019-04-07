@@ -374,9 +374,9 @@ Source : http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node33.html#
 **Reponse :**  
 alert icmp !192.168.43.172 any -> 192.168.43.172 any (msg:"J'ai recu un ping";itype:8;sid:4000011;rev:1;)
 
-Nous avons utilisé l'option "itype", qui permet de filtrer les types ICMP, nous avons seulement bloquer les ICMPs de type request vers l'adresse de l'hôte.
+Nous avons utilisé l'option "itype", qui permet de filtrer les types ICMP, nous avons seulement logguer les ICMPs de type request vers l'adresse de l'hôte.
 
-L'alerte a été journaliser dans le fichier "alert" présent dans le répértoire /var/log/snort.
+L'alerte a été journalisée dans le fichier "alert" présent dans le répértoire /var/log/snort.
 
 Voici un screenshot d'une alerte :
 ![Question 6](images/SRX_Labo03_Image07.png)  
