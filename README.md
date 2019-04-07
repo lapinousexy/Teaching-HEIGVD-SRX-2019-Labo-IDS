@@ -394,7 +394,7 @@ Modifier votre règle pour que les pings soient détectés dans les deux sens.
 ---
 
 **Reponse :**  
-alert icmp any any <> 192.168.43.172 any (msg:"J'ai recu un ping";sid:4000011;rev:1;)
+alert icmp any any <> 192.168.100.34 any (msg:"J'ai recu un ping";sid:4000011;rev:1;)
 
 Nous avons dû ajouter une flêche bidirectionnel, et enlever la négation.
 
