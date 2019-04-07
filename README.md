@@ -394,7 +394,7 @@ Modifier votre règle pour que les pings soient détectés dans les deux sens.
 ---
 
 **Reponse :**  
-alert icmp any any <> 192.168.100.34 any (msg:"J'ai recu un ping";sid:4000011;rev:1;)
+alert icmp any any <> 192.168.43.172 any (msg:"J'ai recu un ping";sid:4000011;rev:1;)
 
 Nous avons dû ajouter une flêche bidirectionnel, et enlever la négation.
 
@@ -414,6 +414,8 @@ Essayer d'écrire une règle qui Alerte qu'une tentative de session SSH a été 
 ---
 
 **Reponse :**  
+
+Cette régle cherche tous les paquets dédiés au port 22 sur notre machine et contenant "ssh", le protocole ssh débutant avec de néfociation contenant ce texte. Cela rends possible la détéction de tentative de conexion SSH à notre machine.
 
 ---
 
