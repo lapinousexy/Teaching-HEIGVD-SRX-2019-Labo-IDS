@@ -288,7 +288,7 @@ alert tcp any any -> any any (msg:"Mon nom!"; content:"Rubinstein"; sid:4000015;
 
 ---
 
-**Reponse :** La régle ayant le SID 4000015 en premiére rev écoute tous les paquets TCP qui proviennent de n'importe quelle IP et port pour toutes déstinations.
+**Reponse :** La règle ayant le SID 4000015 en première rev écoute tous les paquets TCP qui proviennent de n'importe quelle IP et port pour toutes destinations.
 Si le paquet contient le String "Rubinstein" une alerte contenant "Mon nom!" est envoyée ainsi que écrite dans les logs.   
 
 ---
@@ -303,11 +303,10 @@ sudo snort -c myrules.rules -i eth0
 ![Question 2](images/SRX_Labo03_Image00.png)
 ![Question 2 bis](images/SRX_Labo03_Image01.png)
 
-Le logiciel nous fait un petit récapitulatif des règles que nous avons chargé dans le petit tableau, et il nous informe des limitations en mémoire que nous avons configuré (memory-cap).
-
 ---
 
 **Reponse :**  
+Le logiciel nous fait un petit récapitulatif des règles que nous avons chargé dans le petit tableau, et il nous informe des limitations en mémoire que nous avons configuré (memory-cap).
 
 ---
 
@@ -319,10 +318,10 @@ Aller à un site web contenant votre nom ou votre mot clé que vous avez choisi 
 
 **Reponse :**
 
-![Question 3](images/SRX_Labo03_Image02.png)
 ![Question 3 bis](images/SRX_Labo03_Image03.png)
+![Question 3](images/SRX_Labo03_Image02.png)
 
-Nous pouvons voir divers statistiques sur l'écoute que nous avons effectué, nottament le nombre d'alerte, et le classement des divers packets (TCP, UDP, etc...).
+Nous pouvons voir divers statistiques sur l'écoute que nous avons effectué, notament le nombre d'alerte, et le classement des divers packets (TCP, UDP, etc...).
 
 ---
 
@@ -335,7 +334,7 @@ Aller au répertoire /var/log/snort. Ouvrir le fichier `alert`. Vérifier qu'il 
 **Reponse :**  
 ![Question 4](images/SRX_Labo03_Image04.png)
 
-Nous pouvons voir le message d'alerte que nous avions configuré ("Mon nom!"), ainsi que les informations du packet responsable de l'alerte, nous pouvons voir l'IP source et destination, les ports, la date, etc...
+Nous pouvons voir le message d'alerte que nous avions configuré ("Mon nom!"), ainsi que les informations du packet responsable de l'alerte, nous pouvons voir l'IP source et destination, les ports, la date, le numéro de séquence suivante (ACK value), le numéro de la règle Snort, etc...
 
 ---
 
@@ -351,11 +350,13 @@ Ecrire une règle qui journalise (sans alerter) un message à chaque fois que Wi
 ---
 
 **Reponse :**
+
 ![Question 5](images/SRX_Labo03_Image05.png)
-![Question 5 bis](images/SRX_Labo03_Image06.png)  
-La régle est visible dans la capture d'écran, la premiére IP est l'ip de ma machine physique sur le réseau de l'HEIG (10.192.104.120), la seconde est la seule adresse de wikipédia que nous avons trouvé (91.198.174.192).
-Le message a été journalisé dans un fichier nommé snort.log.1554391313, si nous avions utilisé la régle alert plutôt que log, l'alerte serait présente dans alert. Ces deux fichiers sont situé à : /var/log/snort/
-Les paquets qui sont à l'origine de ma machine en direction de wikipédia ont été écrit dans ce fichier de log. Ils sont donc illisible sauf les headers qui sont transmit en clair au travers de HTTPS.
+![Question 5 bis](images/SRX_Labo03_Image06.png) 
+
+La règle est visible dans la capture d'écran, la première IP est l'ip de ma machine physique sur le réseau de l'HEIG (10.192.104.120), la seconde est la seule adresse de Wikipédia que nous avons trouvé (91.198.174.192).
+Le message a été journalisé dans un fichier nommé snort.log.1554391313, si nous avions utilisé la règle alert plutôt que log, l'alerte serait présente dans alert. Ces deux fichiers sont situé à : /var/log/snort/
+Les paquets qui sont à l'origine de ma machine en direction de Wikipédia ont été écrit dans ce fichier de log. Ils sont donc illisible sauf les headers qui sont transmit en clair au travers de HTTPS.
 
 ---
 
@@ -376,7 +377,7 @@ alert icmp !192.168.43.172 any -> 192.168.43.172 any (msg:"J'ai recu un ping";it
 
 Nous avons utilisé l'option "itype", qui permet de filtrer les types ICMP, nous avons seulement logguer les ICMPs de type request vers l'adresse de l'hôte.
 
-L'alerte a été journalisée dans le fichier "alert" présent dans le répértoire /var/log/snort.
+L'alerte a été journalisée dans le fichier "alert" présent dans le répertoire /var/log/snort.
 
 Voici un screenshot d'une alerte :
 ![Question 6](images/SRX_Labo03_Image07.png)  
@@ -396,7 +397,7 @@ Modifier votre règle pour que les pings soient détectés dans les deux sens.
 **Reponse :**  
 alert icmp any any <> 192.168.43.172 any (msg:"J'ai recu un ping";sid:4000011;rev:1;)
 
-Nous avons dû ajouter une flêche bidirectionnel, et enlever la négation.
+Nous avons dû ajouter une flèche bidirectionnel, et enlever la négation.
 
 ![Question 7](images/SRX_Labo03_Image08.png)  
 
@@ -416,7 +417,7 @@ Essayer d'écrire une règle qui Alerte qu'une tentative de session SSH a été 
 **Reponse :**  
 alert tcp any any - 192.168.100.145 22 (msg:"J'ai recu une demande SSH";content="SSH-";sid:4000012;rev:1;)
 
-Cette régle cherche tous les paquets dédiés au port 22 sur notre machine et contenant "SSH-", le protocole ssh débutant avec des négociations contenant ce texte. Cela rends possible la détection de tentative de connexion SSH à notre machine.
+Cette règle cherche tous les paquets dédiés au port 22 sur notre machine et contenant "SSH-", le protocole SSH débutant avec des négociations contenant ce texte. Cela rends possible la détection de tentative de connexion SSH à notre machine.
 
 ![Question 8](images/SRX_Labo03_Image09.png)  
 
@@ -448,6 +449,7 @@ Utiliser l'option correcte de Snort pour analyser le fichier de capture Wireshar
 Il n'y pas vraiment de différence.
 
 Les alertes sont aussi enregistrés dans le fichier "alert".
+
 ---
 
 <sub>This guide draws heavily on http://cs.mvnu.edu/twiki/bin/view/Main/CisLab82014</sub>
